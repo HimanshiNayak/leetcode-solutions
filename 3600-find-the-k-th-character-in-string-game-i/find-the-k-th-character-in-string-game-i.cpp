@@ -1,14 +1,17 @@
 class Solution {
 public:
     char kthCharacter(int k) {
-    //kth character look at binary represenation
-    int inc = 0;
-    k--;
-    while(k){
-        inc += k&1;
-        k >>= 1;
+        string s = "a";
+        while (s.length() < k) {
+            int n = s.length();
+            for (int i = 0; i < n; i++) {
+                if (s[i] == 'z') {
+                    s += 'a';
+                } else {
+                    s += (s[i] + 1);
+                }
+            }
+        }
+        return s[k - 1];
     }
-    return (inc%26) + 'a';
-    }
-    
 };
