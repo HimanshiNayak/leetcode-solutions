@@ -19,8 +19,9 @@ public:
                 right = mid - 1;
             }
         }
+
         
-        // Binary search to find the rightmost index of the target
+//         // Binary search to find the rightmost index of the target
         left = 0;
         right = nums.size() - 1;
         while (left <= right) {
@@ -38,3 +39,18 @@ public:
         return result;
     }
 };
+
+// vector<int>a;
+// for(int i=0;i<nums.size();i++){
+//     if(nums[i] == target){
+//         a.push_back(i);
+//     }
+// }
+// if(a.empty()){
+//     a.push_back(-1);
+//     a.push_back(-1);
+// }
+//     return a;
+// }
+
+// };
