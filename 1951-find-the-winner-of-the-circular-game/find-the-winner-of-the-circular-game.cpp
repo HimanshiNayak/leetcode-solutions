@@ -1,7 +1,7 @@
 class Solution {
 public:
     int findTheWinner(int n, int k) {
-        std::vector<int> circle;
+        vector<int> circle;
         for (int i = 1; i <= n; ++i) {
             circle.push_back(i);
         }
@@ -16,3 +16,4 @@ public:
         return circle[0];
     }
 };
+
