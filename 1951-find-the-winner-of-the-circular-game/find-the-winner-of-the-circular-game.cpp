@@ -35,7 +35,7 @@ public:
             circle.push_back(i);
         }
         if (n == 1) return circle[0];
-        return (function(n - 1, k) + k - 1) % n + 1;
+        return (function(n - 1, k) + k -1) % n+1 ;
     }
 
     int findTheWinner(int n, int k) {
