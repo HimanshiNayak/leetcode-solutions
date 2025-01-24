@@ -17,7 +17,7 @@ public:
             } else if (currentChar == ')') {
                 break;
             } else {
-                number = number * 10 + (currentChar - '0');
+                number = number*10+(currentChar - '0');
             }
         }
         return result + sign * number;
