@@ -16,7 +16,7 @@ int countSubstrings(string s) {
             count++;
         }
     }
-    for (int len = 3; len <= n; len++) {
+    for (int len = 2; len <= n; len++) {
         for (int i = 0; i <= n - len; i++) {
             if (s[i] == s[i + len - 1] && dp[i + 1][i + len - 2]) {
                 dp[i][i + len - 1] = true;
