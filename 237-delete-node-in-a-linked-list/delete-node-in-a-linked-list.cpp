@@ -14,7 +14,7 @@ public:
       //duplicate the next ka  value , then point this nodes next to its next ka next , and delte the given node ka next(as it was duplicated)
       node->val = node->next->val;
       ListNode* temp = node->next;
-    node->next = node->next->next;
+      node->next = node->next->next;
       delete temp;
     }
 };
