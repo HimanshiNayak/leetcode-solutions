@@ -1,7 +1,20 @@
 class Solution {
 public:
-// dutch national flag algo : take three var 0 , 1 ,2 ; f mid is 0 swap with low and low ++, if mid 1 then ++ if 2 then swap with high and high -- , 
     void sortColors(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
+        int low = 0, mid = 0, high = nums.size()-1;
+        while(mid <= high){
+            if(nums[mid] == 0){
+                swap(nums[low], nums[mid]);
+                low++;
+                mid++;
+            }
+            else if(nums[mid] == 1){
+                mid++;
+            }
+            else{
+                swap(nums[mid], nums[high]);
+                high--;
+            }
+        }
     }
 };
