@@ -1,56 +1,32 @@
 class Solution {
 public:
     vector<int> searchRange(vector<int>& nums, int target) {
-        vector<int> result(2, -1); // Initialize the result vector with -1 for both indices
-        int left = 0;
-        int right = nums.size() - 1;
-        
-        // Binary search to find the leftmost index of the target
-        while (left <= right) {
-            int mid = left + (right - left) / 2;
+        // fro first look to the lefft and for last look to the right
+        int low = 0;
+        int high = nums.size() - 1;
+        vector<int> ans(2, -1);
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
             if (nums[mid] == target) {
-                result[0] = mid;
-                right = mid - 1; // Continue searching on the left side
-            } else if (nums[mid] < target) {
-                left = mid + 1;
-            
-            }
-          else {
-                right = mid - 1;
-            }
+                ans[0] = mid;
+                high = mid - 1;
+            } else if (nums[mid] > target)
+                high = mid - 1;
+            else
+                low = mid + 1;
         }
-
-        
-//         // Binary search to find the rightmost index of the target
-        left = 0;
-        right = nums.size() - 1;
-        while (left <= right) {
-            int mid = left + (right - left) / 2;
+        low = 0;
+        high = nums.size() - 1;
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
             if (nums[mid] == target) {
-                result[1] = mid;
-                left = mid + 1; // Continue searching on the right side
-            } else if (nums[mid] < target) {
-                left = mid + 1;
-            } else {
-                right = mid - 1;
-            }
+                ans[1] = mid;
+                low = mid + 1;
+            } else if (nums[mid] > target)
+                high = mid - 1;
+            else
+                low = mid + 1;
         }
-        
-        return result;
+        return ans;
     }
 };
-
-// vector<int>a;
-// for(int i=0;i<nums.size();i++){
-//     if(nums[i] == target){
-//         a.push_back(i);
-//     }
-// }
-// if(a.empty()){
-//     a.push_back(-1);
-//     a.push_back(-1);
-// }
-//     return a;
-// }
-
-// };
