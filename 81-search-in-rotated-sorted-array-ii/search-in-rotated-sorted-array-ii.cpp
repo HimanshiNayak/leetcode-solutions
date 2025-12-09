@@ -5,12 +5,30 @@ public:
         //     if(nums[i]==target)return true;
         // }
         // return false;
-unordered_map<int , int>mp;
-        for(int x:nums){
-            mp[x]++;
+  int n = nums.size();
+        int low = 0;
+        int high = n-1;
+        while(low<=high){
+            int mid = low+ (high-low)/2;
+            if(nums[mid]==target)return true;
+            if(nums[low]==nums[mid] && nums[mid]==nums[high]){
+            high--;
+            low++;
+            continue;
         }
-        for(auto x:mp){
-            if(mp.find(target) != mp.end())return true;
+            // sorted left
+            if(nums[low]<=nums[mid]){ 
+                if(nums[low]<=target && target<nums[mid]){
+                    high = mid-1;
+                }
+                else low = mid+1;
+            }
+            else {
+                if(nums[high]>=target && target>nums[mid]){
+                    low = mid+1;
+                }
+                else high = mid-1;
+            }
         }
         return false;
     }
