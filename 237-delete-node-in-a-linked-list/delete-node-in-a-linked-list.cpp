@@ -8,13 +8,11 @@
  */
 class Solution {
 public:
-  //node->next->val equal hone chahiye fir node->next mei node->nextka next add kr de
     void deleteNode(ListNode* node) {
-      //we are given the node which we have to delete 
-      //duplicate the next ka  value , then point this nodes next to its next ka next , and delte the given node ka next(as it was duplicated)
-      node->val = node->next->val;
-      ListNode* temp = node->next;
-      node->next = node->next->next;
-      delete temp;
+        //jo del krna hai whi hai toh iske bgl wale ko del krdo ..iski value fix krdo pointer update kr do
+
+        node->val = node->next->val;
+        node->next = node->next->next;
+
     }
 };
