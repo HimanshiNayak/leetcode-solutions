@@ -10,36 +10,18 @@
  */
 class Solution {
 public:
-//tortoise and hare but with fast as fast->next->next from start , slow head pe hi , so thaut we stopone beforemid
     ListNode* deleteMiddle(ListNode* head) {
-//         if(!head || !head->next)return nullptr;
-//         ListNode* slow = head;
-//         ListNode* fast = head;
-//         fast = fast->next->next;
-//         while(fast!=NULL && fast->next !=NULL){
-//             slow = slow->next;
-//             fast= fast->next->next;
-//         }
-//         slow->next= slow->next->next;
-//         return head;
-//     }
-// };
-
-if (!head || !head->next) return NULL;
-  ListNode* temp = head;
-  int count=0,n=0;
-  while(temp){
-      count++;
-      temp= temp->next;
-  }
- 
-  n = count/2;
-  temp = head;
-  for(int i=0;i<n-1;i++){temp = temp->next;}
-  
-  ListNode* mid = temp->next;
-  temp->next= temp->next->next;
-  delete mid;
-  return head;
-}
+        if(!head || head->next ==NULL)return NULL;
+        ListNode* slow = head ;
+        ListNode* fast = head;
+        ListNode* pre = NULL;
+         while(fast != NULL && fast->next!=NULL){
+             fast = fast->next->next;
+             pre= slow;
+             slow = slow->next;
+        
+         }
+         pre->next = pre->next->next;
+         return head;
+    }
 };
