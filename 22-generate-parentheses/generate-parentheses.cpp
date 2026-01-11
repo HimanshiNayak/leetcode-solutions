@@ -1,33 +1,6 @@
-// class Solution {
-// public:
-// vector<string>res;
-// void valid(int open , int close , string ans , vector<string>res){
-//     if(open ==0 && open ==0){
-//         res.push_back(ans);
-//         return ;
-//     }
-//     if(open>0){
-//         ans.push_back('(');
-//         valid(open-1,close, ans , res);
-//         ans.pop_back();
-//     }
-//     if(close>open){
-//           ans.push_back(')');
-//         valid(open,close-1, ans , res);
-//         ans.pop_back();
-//     }
-// }
-//     vector<string> generateParenthesis(int n) {
-//         int open =n;
-//         int close = n;
-//         string ans ;
-//         valid(open , close , ans , res);
-//         return res;
-//     }
-// };
 class Solution {
 public:
-    vector<string> res;
+        vector<string> res;
 
     void valid(int open, int close, string ans, vector<string>& res) {
         if (open == 0 && close == 0) {
