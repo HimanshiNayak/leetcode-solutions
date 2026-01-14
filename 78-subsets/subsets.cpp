@@ -1,25 +1,20 @@
 class Solution {
-    vector<vector<int>> res;
 public:
-void subset(vector<int>& nums , vector<int>&temp,vector<vector<int>>&res,int i){
+        vector<vector<int>>ans;
+void getsub(vector<int>&nums , int i , vector<vector<int>>&ans, vector<int>&subset){
     if(i>=nums.size()){
-        res.push_back(temp);
+        ans.push_back(subset);
         return;
     }
-    temp.push_back(nums[i]); 
-     subset(nums, temp, res,i + 1); 
-     temp.pop_back(); 
-      subset(nums, temp, res,i + 1);  
-
+    subset.push_back(nums[i]);
+    getsub(nums,i+1, ans,subset);
+    subset.pop_back();
+    getsub(nums, i+1,ans,subset);
 }
     vector<vector<int>> subsets(vector<int>& nums) {
-        // res.clear(); // Initialize the result container
-        if (nums.empty()) return res;
-        vector<int> temp; // Temporary list to hold subsets
-        subset(nums, temp, res,0);
-        return res;
+        vector<int>subset;
+        if(nums.size()==0)return ans;
+        getsub(nums,0,ans,subset);
+        return ans;
     }
-
-    
 };
-    
