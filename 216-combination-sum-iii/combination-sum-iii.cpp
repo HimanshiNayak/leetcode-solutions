@@ -10,10 +10,11 @@ void sum(int i , int k , int n , vector<int>&ans ){
 if(i>9){
     return;
 }
-sum(i+1, k,n,ans);
+
 ans.push_back(i);
 sum(i+1,k,n-i,ans);
 ans.pop_back();
+sum(i+1, k,n,ans);
 
 }
     vector<vector<int>> combinationSum3(int k, int n) {
