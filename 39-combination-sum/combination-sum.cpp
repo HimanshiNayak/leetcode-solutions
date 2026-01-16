@@ -1,30 +1,25 @@
 class Solution {
-  public:
-    void findCombination(int ind, int target, vector < int > & arr, vector < vector < int >> & ans, vector < int > & ds) {
-      if (ind == arr.size()) {
-        if (target == 0) {
-          ans.push_back(ds);
-        }
-        return;
-      }
-      // pick up the element 
-      if (arr[ind] <= target) {
-        ds.push_back(arr[ind]);
-        findCombination(ind, target - arr[ind], arr, ans, ds);
-        ds.pop_back();
-      }
-
-      findCombination(ind + 1, target, arr, ans, ds);
-
+public:
+void findcom(int i , int target, vector<int>& candidates , vector<vector<int>>& ans , vector<int>& res){
+    if(i==candidates.size()){
+        if(target==0){
+            ans.push_back(res);
     }
-  public:
-    vector < vector < int >> combinationSum(vector < int > & candidates, int target) {
-      vector < vector < int >> ans;
-      vector < int > ds;
-      findCombination(0, target, candidates, ans, ds);
-      return ans;
+    return ;
+    }
+    if(candidates[i]<=target){
+        res.push_back(candidates[i]);
+    
+    findcom(i , target-candidates[i],candidates,ans, res);
+    res.pop_back();
+    }
+       findcom(i+1 , target,candidates,ans, res);
+
+}
+    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+        vector<vector<int>>ans;
+        vector<int>res;
+findcom(0,target,candidates, ans, res);
+return ans;
     }
 };
-
-
-
